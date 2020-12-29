@@ -38,7 +38,7 @@ public class CarDetailsServlet extends HttpServlet {
             out.print(String.format("<li>Price: %d</li>", car.getPrice()));
             out.print(String.format("<li>Fuel Type: %s</li>", car.getFuelType()));
             out.print(String.format("<li>Body Type: %s</li>", car.getBodyType()));
-            out.print(String.format("<li>Mileage: %d</li>", car.getMilage()));
+            out.print(String.format("<li>Mileage: %d</li>", car.getMileage()));
             out.print("</ul></body></html>");
 
         }

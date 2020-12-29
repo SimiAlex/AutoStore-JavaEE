@@ -10,7 +10,7 @@ public class Car
     private int price;
     private String fuelType;
     private String bodyType;
-    private int milage;
+    private int mileage;
     private static int lastId = 0;
 
     //constructor
@@ -82,12 +82,12 @@ public class Car
         this.bodyType = bodyType;
     }
 
-    public int getMilage() {
-        return milage;
+    public int getMileage() {
+        return mileage;
     }
 
-    public void setMilage(int milage) {
-        this.milage = milage;
+    public void setMileage(int mileage) {
+        this.mileage = mileage;
     }
 
     public static int getLastId() {

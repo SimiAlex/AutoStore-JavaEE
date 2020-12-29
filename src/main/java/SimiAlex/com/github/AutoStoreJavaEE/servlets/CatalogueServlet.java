@@ -47,7 +47,7 @@ public class CatalogueServlet extends HttpServlet
         skoda.setYear(2006);
         skoda.setBodyType("hatchback");
         skoda.setFuelType("petrol");
-        skoda.setMilage(150000);
+        skoda.setMileage(150000);
         skoda.setPrice(2500);
         Catalogue.cars.add(skoda);
 
@@ -57,7 +57,7 @@ public class CatalogueServlet extends HttpServlet
         seat.setYear(2003);
         seat.setBodyType("hatchback");
         seat.setFuelType("diesel");
-        seat.setMilage(240000);
+        seat.setMileage(240000);
         seat.setPrice(1600);
         Catalogue.cars.add(seat);
 
@@ -67,7 +67,7 @@ public class CatalogueServlet extends HttpServlet
         mini.setYear(2010);
         mini.setBodyType("coupe");
         mini.setFuelType("petrol");
-        mini.setMilage(400000);
+        mini.setMileage(400000);
         mini.setPrice(3000);
         Catalogue.cars.add(mini);
     }

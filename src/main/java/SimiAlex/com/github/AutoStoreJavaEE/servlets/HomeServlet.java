@@ -23,7 +23,8 @@ public class HomeServlet extends HttpServlet {
             out.print("<html><body>");
 
             out.print("<h1>Home Page</h1>");
-            out.print("<a href=\"catalogue\">View list of cars</a>");
+            out.print("<a href=\"catalogue\">View list of cars</a><br>");
+            out.print("<a href=\"add-car-form.html\">Add car</a>");
 
             out.print("</body></html>");
         }
