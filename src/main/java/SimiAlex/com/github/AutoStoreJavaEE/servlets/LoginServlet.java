@@ -8,12 +8,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "LoginServlet", urlPatterns = { "/loginServlet" })
 public class LoginServlet extends HttpServlet 
 {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
     {
         // recover request params
         String userName = req.getParameter("username");
@@ -22,6 +23,9 @@ public class LoginServlet extends HttpServlet
         // validate login params
         if(userName.equals("Alex") && password.equals("Siminea"))
         {
+            HttpSession session = req.getSession();
+            session.setAttribute("siteUser", userName);
+
             // RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/home-page.html");
             // dispatcher.forward(req, resp);
             resp.sendRedirect("home");

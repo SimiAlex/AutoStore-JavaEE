@@ -2,7 +2,6 @@ package SimiAlex.com.github.AutoStoreJavaEE.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.nio.Buffer;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,7 +16,7 @@ import SimiAlex.com.github.AutoStoreJavaEE.entities.Car;
 public class AddCarServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         
         String model = req.getParameter("model");
         String make = req.getParameter("make");
