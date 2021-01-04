@@ -30,7 +30,6 @@ public class CatalogueServlet extends HttpServlet
             out.print("<html><body><h1>ALX Cars</h1><ul>");
             for (Car car : Catalogue.cars) 
             {
-                // out.print("<li><a href=\"car-details?id=" + car.getId()+"\">" + car.toString() +"</a></li>");
                 out.print(String.format("<li><a href=\"car-details?id=%d\">%s</a></li>", car.getId(),car.toString()));
             }
             out.print("</ul></body></html>");
