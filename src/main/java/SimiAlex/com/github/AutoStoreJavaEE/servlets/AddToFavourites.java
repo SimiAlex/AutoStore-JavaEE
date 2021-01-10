@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import SimiAlex.com.github.AutoStoreJavaEE.Catalogue;
 import SimiAlex.com.github.AutoStoreJavaEE.entities.Car;
 import SimiAlex.com.github.AutoStoreJavaEE.entities.FavouriteCar;
 
@@ -25,14 +24,14 @@ public class AddToFavourites extends HttpServlet {
         Car car = null;
         int carId = Integer.parseInt(req.getParameter("carId"));
         //recover car object using id
-        for (Car myCar : Catalogue.cars) 
-        {
-            if(carId == myCar.getId())
-            {
-                car = myCar;
-                break;
-            }
-        }
+        // for (Car myCar : Catalogue.cars) 
+        // {
+        //     if(carId == myCar.getId())
+        //     {
+        //         car = myCar;
+        //         break;
+        //     }
+        // }
 
         // add car to favourites
         HttpSession session = req.getSession();

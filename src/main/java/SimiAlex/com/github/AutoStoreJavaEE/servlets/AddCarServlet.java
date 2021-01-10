@@ -9,8 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import SimiAlex.com.github.AutoStoreJavaEE.Catalogue;
 import SimiAlex.com.github.AutoStoreJavaEE.entities.Car;
+import SimiAlex.com.github.AutoStoreJavaEE.repository.CarRepository;
+import SimiAlex.com.github.AutoStoreJavaEE.repository.CarRepositoryImpl;
 
 @WebServlet(name = "AddCarServlet", urlPatterns = { "/add-car" })
 public class AddCarServlet extends HttpServlet {
@@ -35,7 +36,11 @@ public class AddCarServlet extends HttpServlet {
         myCar.setBodyType(bodyType);
         myCar.setMileage(mileage);
 
-        Catalogue.cars.add(myCar);
+        //persist car
+        CarRepository cr = new CarRepositoryImpl();
+        cr.addCar(myCar);
+
+        //show confirmation page
         try(PrintWriter out = resp.getWriter())
         {
             out.print("<html><body>");

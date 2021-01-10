@@ -9,8 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import SimiAlex.com.github.AutoStoreJavaEE.Catalogue;
 import SimiAlex.com.github.AutoStoreJavaEE.entities.Car;
+import SimiAlex.com.github.AutoStoreJavaEE.repository.CarRepository;
+import SimiAlex.com.github.AutoStoreJavaEE.repository.CarRepositoryImpl;
 
 @WebServlet(name = "CarDetailsServlet", urlPatterns = "/car-details")
 public class CarDetailsServlet extends HttpServlet {
@@ -18,17 +19,12 @@ public class CarDetailsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
     {
-        Car car = null;
         int carId = Integer.parseInt(req.getParameter("id"));
+
+
         //recover car object using id
-        for (Car myCar : Catalogue.cars) 
-        {
-            if(carId == myCar.getId())
-            {
-                car = myCar;
-                break;
-            }
-        }
+        CarRepository cr = new CarRepositoryImpl();
+        Car car = cr.findById(carId);        
 
         // show car details
         try(PrintWriter out  = resp.getWriter())

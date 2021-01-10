@@ -15,8 +15,8 @@ Frontend:
 
 Backend:
 * HttpServlets
-* MySQL database (wip)
-* JPA - Hibernate (wip)  
+* MySQL database 
+* JPA - Hibernate   
 
 Others:
 * build tool: Maven

@@ -1,22 +1,37 @@
 package SimiAlex.com.github.AutoStoreJavaEE.entities;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "cars")
 public class Car 
 {
     //fields
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+
     private String model;
     private String make;
     private int year;
     private int price;
+
+    @Column(name = "fuel_type")
     private String fuelType;
+
+    @Column(name = "body_type")
     private String bodyType;
     private int mileage;
-    private static int lastId = 0;
 
     //constructor
     public Car()
     {
-        id = ++lastId;
     }
     
     //methods
@@ -88,13 +103,5 @@ public class Car
 
     public void setMileage(int mileage) {
         this.mileage = mileage;
-    }
-
-    public static int getLastId() {
-        return lastId;
-    }
-
-    public static void setLastId(int lastId) {
-        Car.lastId = lastId;
     }
 }
