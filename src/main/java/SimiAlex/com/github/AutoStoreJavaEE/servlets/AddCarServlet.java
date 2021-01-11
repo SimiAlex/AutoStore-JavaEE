@@ -14,11 +14,11 @@ import SimiAlex.com.github.AutoStoreJavaEE.repository.CarRepository;
 import SimiAlex.com.github.AutoStoreJavaEE.repository.CarRepositoryImpl;
 
 @WebServlet(name = "AddCarServlet", urlPatterns = { "/add-car" })
-public class AddCarServlet extends HttpServlet {
-
+public class AddCarServlet extends HttpServlet 
+{
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
+    {    
         String model = req.getParameter("model");
         String make = req.getParameter("make");
         int year = Integer.parseInt(req.getParameter("year"));
@@ -36,11 +36,11 @@ public class AddCarServlet extends HttpServlet {
         myCar.setBodyType(bodyType);
         myCar.setMileage(mileage);
 
-        //persist car
+        // persist car
         CarRepository cr = new CarRepositoryImpl();
         cr.addCar(myCar);
 
-        //show confirmation page
+        // show confirmation page
         try(PrintWriter out = resp.getWriter())
         {
             out.print("<html><body>");
