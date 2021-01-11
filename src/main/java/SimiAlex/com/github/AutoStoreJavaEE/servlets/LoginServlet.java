@@ -28,7 +28,7 @@ public class LoginServlet extends HttpServlet
 
             // RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/home-page.html");
             // dispatcher.forward(req, resp);
-            resp.sendRedirect("home");
+            resp.sendRedirect("home.jsp");
         }
         else
         {

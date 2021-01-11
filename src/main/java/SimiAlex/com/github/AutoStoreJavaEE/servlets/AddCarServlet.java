@@ -46,7 +46,7 @@ public class AddCarServlet extends HttpServlet
             out.print("<html><body>");
 
             out.print("Your car was added.<br>");
-            out.print("<a href=\"home\">Back to home page</a><br>");
+            out.print("<a href=\"home.jsp\">Back to home page</a><br>");
             out.print("</body></html>");
         }
     }

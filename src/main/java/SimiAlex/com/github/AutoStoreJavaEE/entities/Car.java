@@ -65,6 +65,12 @@ public class Car
         return make + " " + model + " (" + year + ")";
     }
 
+    
+    public String getDescription()
+    {
+        return make + " " + model + " (" + year + ")";
+    }
+    
     public int getId() {
         return id;
     }

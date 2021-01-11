@@ -31,15 +31,17 @@ public class AddToFavourites extends HttpServlet {
 
         FavouriteCar fc = (FavouriteCar) session.getAttribute("favouriteCar");
 
+        // handle null case
         if(fc == null)
         {
             fc = new FavouriteCar();
             session.setAttribute("favouriteCar", fc);
         }
         
+        // add car to favourites
         fc.getFavoriteCars().add(aCar);
 
-        //confirmation page
+        // confirmation page
         try(PrintWriter out = resp.getWriter())
         {
             out.print("<html><body>");
@@ -49,7 +51,7 @@ public class AddToFavourites extends HttpServlet {
                 out.print(String.format("<li>%s</li>", car.toString()));
             }
             out.print("</ul>");
-            out.print("<a href=\"home\">Back to home page</a><br>");
+            out.print("<a href=\"home.jsp\">Back to home page</a><br>");
             out.print("</body></html>");
         }
     }

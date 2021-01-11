@@ -34,12 +34,21 @@
       <artifactId>hibernate-core</artifactId>
       <version>5.4.27.Final</version>
     </dependency>
+   
     <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
       <version>8.0.22</version>
     </dependency>
+    
+    <!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+    <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>jstl</artifactId>
+        <version>1.2</version>
+    </dependency>
+    
 
   </dependencies>
   <build>
