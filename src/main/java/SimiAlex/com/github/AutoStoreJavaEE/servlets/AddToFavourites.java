@@ -12,6 +12,8 @@ import javax.servlet.http.HttpSession;
 
 import SimiAlex.com.github.AutoStoreJavaEE.entities.Car;
 import SimiAlex.com.github.AutoStoreJavaEE.entities.FavouriteCar;
+import SimiAlex.com.github.AutoStoreJavaEE.repository.CarRepository;
+import SimiAlex.com.github.AutoStoreJavaEE.repository.CarRepositoryImpl;
 
 @WebServlet(name = "AddToFavourites", urlPatterns = "/addToFavourites")
 public class AddToFavourites extends HttpServlet {
@@ -19,19 +21,10 @@ public class AddToFavourites extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
     {
-
         // recover Car object
-        Car car = null;
         int carId = Integer.parseInt(req.getParameter("carId"));
-        //recover car object using id
-        // for (Car myCar : Catalogue.cars) 
-        // {
-        //     if(carId == myCar.getId())
-        //     {
-        //         car = myCar;
-        //         break;
-        //     }
-        // }
+        CarRepository cr = new CarRepositoryImpl();
+        Car aCar = cr.findById(carId);
 
         // add car to favourites
         HttpSession session = req.getSession();
@@ -44,18 +37,16 @@ public class AddToFavourites extends HttpServlet {
             session.setAttribute("favouriteCar", fc);
         }
         
-        fc.getFavoriteCars().add(car);
-
-
+        fc.getFavoriteCars().add(aCar);
 
         //confirmation page
         try(PrintWriter out = resp.getWriter())
         {
             out.print("<html><body>");
             out.print("Your car was added.<br>");
-            for (Car aCar : fc.getFavoriteCars()) 
+            for (Car car : fc.getFavoriteCars()) 
             {
-                out.print(String.format("<li>%s</li>",aCar.toString()));
+                out.print(String.format("<li>%s</li>", car.toString()));
             }
             out.print("</ul>");
             out.print("<a href=\"home\">Back to home page</a><br>");
