@@ -13,23 +13,13 @@
   	<body>    
 
 	    <h1>List of cars in your account</h1>
-		<% 
-			//recover Set of cars
-            CarRepository carRepository = new CarRepositoryImpl();
-            Set<Car> cars = carRepository.findAll();
-
-
-		%> 
 
 		<ul>
-			<% 
-                for (Car car : cars) 
-                {
-                    out.print(String.format("<li><a href=\"car-details?id=%d\">%s</a></li>", car.getId(), car.toString()));
-                }
-			%>
+			<c:forEach var="car" items="${sessionScope.carList}" >
+				<li><a href="car-details?id=${car.id}">${car.description}</a></li>
+			</c:forEach>
 		</ul>
-		<br>
+		
 		<a href="home.jsp">Back to home page</a>	
 		
   	</body>

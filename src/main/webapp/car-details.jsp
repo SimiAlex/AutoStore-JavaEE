@@ -11,9 +11,10 @@
   	<body>    
         
         <%  //recover car object using id
+            int carId = Integer.parseInt(req.getParameter("id"));
             CarRepository cr = new CarRepositoryImpl();
             Car car = cr.findById(carId);
-            int carId = Integer.parseInt(req.getParameter("id"));
+            
 	    %>    
 		   
         <ul>    
