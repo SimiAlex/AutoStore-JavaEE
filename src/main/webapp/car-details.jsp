@@ -10,11 +10,11 @@
    
   	<body>    
         
-        <%  //recover car object using id
+        <%  
+            // recover car object using id
             int carId = Integer.parseInt(req.getParameter("id"));
             CarRepository cr = new CarRepositoryImpl();
             Car car = cr.findById(carId);
-            
 	    %>    
 		   
         <ul>    
@@ -24,15 +24,24 @@
             <li>Body Type: ${car.bodyType}</li>
             <li>Mileage: ${car.mileage}</li>
         </ul>
-        <a href="update-car.jsp?id=${car.id}">Update car</a>
+        
 
         <form action="addToFavourites" method="POST">
             <input type="hidden" name="carId" value="${car.id}">
             <input type="submit" value="Add to favorites">
         </form>
-        
+
+        <!-- update and delete options -->        
 		<br>
-        
+        <a href="update-car.jsp?id=${car.id}">Update car</a>
+
+        <form action="delete-car" method="POST">
+            <input type="hidden" name="carId" value="${car.id}">
+            <input type="submit" value="Delete car">
+        </form>
+
+        <!-- link to homepage -->
+        <br>
 		<a href="home.jsp">Back to home page</a>	
 		
   	</body>

@@ -1,5 +1,7 @@
 /.settings
 /.vscode
+
+# target folder
 /target
 /.idea
 *.iml
