@@ -15,7 +15,7 @@
 
 		<ul>
 			<c:forEach var="car" items="${sessionScope.carList}" >
-				<li><a href="car-details?id=${car.id}">${car.description}</a></li>
+				<li><a href="car-details-servlet?id=${car.id}">${car.description}</a></li>
 			</c:forEach>
 		</ul>
 		

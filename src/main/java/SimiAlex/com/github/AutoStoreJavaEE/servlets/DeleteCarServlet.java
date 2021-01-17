@@ -27,6 +27,6 @@ public class DeleteCarServlet extends HttpServlet
         cr.deleteCar(carId);
 
         // redirect to cars-in-account page
-        resp.sendRedirect("cars-in-account.jsp");
+        resp.sendRedirect("getCarList");
     }
 }
