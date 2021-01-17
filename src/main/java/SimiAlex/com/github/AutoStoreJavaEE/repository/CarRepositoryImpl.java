@@ -40,9 +40,11 @@ public class CarRepositoryImpl implements CarRepository
     }
 
     @Override
-    public void updateCar(int id) 
+    public void updateCar(Car car) 
     {
-        // TODO Auto-generated method stub
+        em.getTransaction().begin();
+        em.merge(car);
+        em.getTransaction().commit();
     }
 
     @Override

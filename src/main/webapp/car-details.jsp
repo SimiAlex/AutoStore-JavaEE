@@ -31,7 +31,11 @@
 
         <!-- update and delete options -->        
 		<br>
-        <a href="update-car.jsp?id=${myCar.id}">Update car</a>
+        
+        <form action="update-car" method="POST">
+            <input type="hidden" name="carId" value="${myCar.id}">
+            <input type="submit" value="Update car">
+        </form>
 
         <form action="delete-car" method="POST">
             <input type="hidden" name="carId" value="${myCar.id}">

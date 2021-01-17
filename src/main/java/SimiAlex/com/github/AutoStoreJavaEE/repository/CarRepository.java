@@ -9,6 +9,6 @@ public interface CarRepository
     void addCar(Car car);
     Set<Car> findAll();
     Car findById(int id);
-    void updateCar(int id);
+    void updateCar(Car car);
     void deleteCar(int id);
 }
