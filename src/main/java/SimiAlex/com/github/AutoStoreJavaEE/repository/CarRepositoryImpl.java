@@ -9,17 +9,19 @@ import javax.persistence.Persistence;
 
 import SimiAlex.com.github.AutoStoreJavaEE.entities.Car;
 
-public class CarRepositoryImpl implements CarRepository {
-
+public class CarRepositoryImpl implements CarRepository 
+{
+    // fields
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-persistence-unit");
     private EntityManager em = emf.createEntityManager();
 
+    // methods
     @Override
-    public void addCar(Car car) {
+    public void addCar(Car car) 
+    {
         em.getTransaction().begin();
         em.persist(car);
         em.getTransaction().commit();
-
     }
 
     @Override
@@ -31,21 +33,28 @@ public class CarRepositoryImpl implements CarRepository {
     }
 
     @Override
-    public Car findById(int id) {
+    public Car findById(int id) 
+    {
         Car car  = em.find(Car.class, id);
         return car;
     }
 
     @Override
-    public void updateCar(int id) {
+    public void updateCar(int id) 
+    {
         // TODO Auto-generated method stub
-
     }
 
     @Override
-    public void deleteCar(int id) {
-        // TODO Auto-generated method stub
+    public void deleteCar(int id) 
+    {
+        // retrieve car by id
+        Car car = findById(id);
 
+        // delete care from database
+        em.getTransaction().begin();
+        em.remove(car);
+        em.getTransaction().commit();
     }
     
 }
