@@ -14,12 +14,35 @@
 	    <jsp:include page="header.jsp"/>    
 	    <h1>List of cars in your account</h1>
 
-		<ul>
-			<c:forEach var="car" items="${sessionScope.carList}" >
-				<li><a href="car-details-servlet?id=${car.id}">${car.description}</a></li>
-			</c:forEach>
-		</ul>
-		
+		<table id="customerTable">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Make</th>
+					<th>Model</th>
+					<th>Year</th>
+					<th>Price</th>
+     				<th>Details</th>
+
+				</tr>
+			</thead>
+	
+			<tbody>
+				<c:forEach var="car" items="${sessionScope.carList}" >
+				<tr>
+					<td>${car.id}</td>
+					<td>${car.make}</td>
+					<td>${car.model}</td>
+					<td>${car.year}</td>
+					<td>${car.price}</td>
+					<td>
+						<a href="car-details-servlet?id=${car.id}">Details</a>
+					</td>
+				</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+		<br>
 		<a href="home.jsp">Back to home page</a>	
 		
   	</body>
