@@ -9,7 +9,7 @@
   	</head>
   
   	<body>    
-
+    	<jsp:include page="header.jsp"/>    
 	    <h1>Favourite cars</h1>
 		<% 
 			FavouriteCar fc = (FavouriteCar) session.getAttribute("favouriteCar");

@@ -12,7 +12,7 @@
   	</head>
    
   	<body>    
-
+        <jsp:include page="header.jsp"/>    
         <h1> ${myCar.make} ${myCar.model} </h1>
 		   
         <ul>    

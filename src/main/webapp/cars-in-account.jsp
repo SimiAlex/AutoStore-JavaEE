@@ -11,6 +11,7 @@
   	</head>
   
   	<body>    
+	    <jsp:include page="header.jsp"/>    
 	    <h1>List of cars in your account</h1>
 
 		<ul>
