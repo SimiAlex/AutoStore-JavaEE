@@ -23,7 +23,8 @@ Others:
 * Apache Tomcat 9
  
 ## Screenshots 
-![App](https://github.com/SimiAlex/AutoStoreJavaEE/blob/master/src/main/resources/images/login.PNG)
-![App](https://github.com/SimiAlex/AutoStoreJavaEE/blob/master/src/main/resources/images/home.PNG)
-![App](https://github.com/SimiAlex/AutoStoreJavaEE/blob/master/src/main/resources/images/catalog.PNG)
-![App](https://github.com/SimiAlex/AutoStoreJavaEE/blob/master/src/main/resources/images/car%20details.PNG)
+![App](https://github.com/SimiAlex/AutoStoreJavaEE/blob/master/src/main/resources/images/homePage.PNG)
+![App](https://github.com/SimiAlex/AutoStoreJavaEE/blob/master/src/main/resources/images/carsInAccount.PNG)
+![App](https://github.com/SimiAlex/AutoStoreJavaEE/blob/master/src/main/resources/images/cardetails.PNG)
+![App](https://github.com/SimiAlex/AutoStoreJavaEE/blob/master/src/main/resources/images/addCar.PNG)
+![App](https://github.com/SimiAlex/AutoStoreJavaEE/blob/master/src/main/resources/images/updateCar.PNG)
