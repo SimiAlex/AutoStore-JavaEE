@@ -10,11 +10,9 @@
    
   	<body>    
         
-        <%  //recover car object using id
-            int carId = Integer.parseInt(req.getParameter("id"));
-            CarRepository cr = new CarRepositoryImpl();
-            Car car = cr.findById(carId);
-            
+        <%  
+            // recover car object using id
+            Car car = ((CarRepository) getServletContext().getAttribute("carRepoImpl"))).findById(Integer.parseInt(req.getParameter("id"));
 	    %>    
 		   
         <ul>    
@@ -24,6 +22,7 @@
             <li>Body Type: ${car.bodyType}</li>
             <li>Mileage: ${car.mileage}</li>
         </ul>
+
         <a href="update-car.jsp?id=${car.id}">Update car</a>
 
         <form action="addToFavourites" method="POST">

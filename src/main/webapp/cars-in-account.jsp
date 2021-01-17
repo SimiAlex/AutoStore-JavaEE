@@ -11,7 +11,6 @@
   	</head>
   
   	<body>    
-
 	    <h1>List of cars in your account</h1>
 
 		<ul>
