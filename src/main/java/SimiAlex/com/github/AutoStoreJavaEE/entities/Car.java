@@ -2,9 +2,12 @@ package SimiAlex.com.github.AutoStoreJavaEE.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,22 +19,26 @@ public class Car
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-
     private String model;
     private String make;
     private int year;
     private int price;
+    private int mileage;
 
     @Column(name = "fuel_type")
     private String fuelType;
 
     @Column(name = "body_type")
     private String bodyType;
-    private int mileage;
 
-    //constructor
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(nullable = false)
+    private Seller seller;
+    
+    // constructor
     public Car()
     {
+        // leave empty
     }
     
     //methods
@@ -108,5 +115,13 @@ public class Car
 
     public void setMileage(int mileage) {
         this.mileage = mileage;
+    }
+
+    public Seller getSeller() {
+        return seller;
+    }
+
+    public void setSeller(Seller seller) {
+        this.seller = seller;
     }
 }
