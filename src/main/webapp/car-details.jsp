@@ -7,7 +7,8 @@
 
 <html>
   	<head>
-    	<title>AutoDealer</title>		
+    	<title>AutoDealer</title>	
+        <link rel="stylesheet" type="text/css" media="screen" href="css/page-general.css"/>	
   	</head>
    
   	<body>    

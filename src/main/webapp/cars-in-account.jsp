@@ -9,13 +9,14 @@
     	<title>AutoDealer</title>	
 		<meta charset="utf-8"/>
 		<link rel="stylesheet" type="text/css" media="screen" href="css/table.css"/>	
+		<link rel="stylesheet" type="text/css" media="screen" href="css/page-general.css"/>
   	</head>
   
   	<body>    
 	    <jsp:include page="header.jsp"/>    
 	    <h1>List of cars in your account</h1>
 
-		<table id="customerTable">
+		<table id="customerTable" class="content-table">
 			<thead>
 				<tr>
 					<th>ID</th>
