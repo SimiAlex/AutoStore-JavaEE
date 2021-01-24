@@ -41,7 +41,7 @@ public class Car
         // leave empty
     }
     
-    //methods
+    // methods
     public String getModel() {
         return model;
     }

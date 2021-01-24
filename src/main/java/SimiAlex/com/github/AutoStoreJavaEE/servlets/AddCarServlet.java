@@ -27,6 +27,11 @@ public class AddCarServlet extends HttpServlet
         String bodyType = req.getParameter("bodyType");
         int mileage = Integer.parseInt(req.getParameter("mileage"));
 
+        // TODO for temporary use only, to be removed
+        int sellerId = Integer.parseInt(req.getParameter("sellerId"));
+        // recover seller from database (based on the site user, if he is a seller)
+        // TODO
+
         Car myCar = new Car();
         myCar.setModel(model);
         myCar.setMake(make);
@@ -35,6 +40,8 @@ public class AddCarServlet extends HttpServlet
         myCar.setFuelType(fuelType);
         myCar.setBodyType(bodyType);
         myCar.setMileage(mileage);
+        
+        // TODO set seller for this car
 
         // persist car
         CarRepository cr = new CarRepositoryImpl();

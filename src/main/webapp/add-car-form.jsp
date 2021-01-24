@@ -51,7 +51,15 @@
                 <input type="text" name="mileage"/>
             </td>
         </tr>
+        <!- TODO temporary usage - to be removed -->
         <tr>
+            <td>Seller ID (temporary)</td>
+            <td>
+                <input type="text" name="sellerId"/>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
             <td>
                 <input type="submit" value="Add car"/>
             </td>

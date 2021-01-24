@@ -20,7 +20,7 @@ public class Seller
     private String type; // reprezentanta, privat, ...
 
     // TODO resolve mapping, including cascade type
-    private Set<Car> cars;
+    //private Set<Car> cars;
 
     // constructor
 
@@ -55,13 +55,13 @@ public class Seller
         this.type = type;
     }
 
-    public Set<Car> getCars() 
-    {
-        return cars;
-    }
+    // public Set<Car> getCars() 
+    // {
+    //     return cars;
+    // }
 
-    public void setCars(Set<Car> cars) 
-    {
-        this.cars = cars;
-    }
+    // public void setCars(Set<Car> cars) 
+    // {
+    //     this.cars = cars;
+    // }
 }

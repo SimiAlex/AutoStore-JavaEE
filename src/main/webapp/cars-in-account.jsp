@@ -22,8 +22,8 @@
 					<th>Model</th>
 					<th>Year</th>
 					<th>Price</th>
+					<th>Seller</th>
      				<th>Details</th>
-
 				</tr>
 			</thead>
 	
@@ -35,6 +35,7 @@
 					<td>${car.model}</td>
 					<td>${car.year}</td>
 					<td>${car.price}</td>
+					<td>${car.seller.name}</td>
 					<td>
 						<a href="car-details-servlet?id=${car.id}">Details</a>
 					</td>
@@ -42,6 +43,7 @@
 				</c:forEach>
 			</tbody>
 		</table>
+		
 		<br>
 		<a href="home.jsp">Back to home page</a>	
 		
