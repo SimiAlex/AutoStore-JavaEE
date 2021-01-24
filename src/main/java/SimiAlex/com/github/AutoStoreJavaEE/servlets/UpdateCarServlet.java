@@ -1,3 +1,10 @@
+/*
+ * This servlet has the role to send the user to the update form and to
+ * send the car object to update to the jsp form to fill in the fields.
+ * 
+ * It does NOT update the database. UpdateCarDatabaseServlet does that.
+*/
+
 package SimiAlex.com.github.AutoStoreJavaEE.servlets;
 
 import java.io.IOException;
@@ -24,7 +31,7 @@ public class UpdateCarServlet extends HttpServlet
         // recover car id from request
         int carId = Integer.parseInt(req.getParameter("carId"));
        
-        // recover a CarRepositoryImpl instance from the application scope
+        // recover an ItemRepository<Car> instance from the application scope
         ServletContext application = getServletContext();
         ItemRepository<Car> carRepo = DIRepositories.getCarRepository(application);
 

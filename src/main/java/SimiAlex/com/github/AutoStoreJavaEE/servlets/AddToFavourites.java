@@ -3,6 +3,7 @@ package SimiAlex.com.github.AutoStoreJavaEE.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,19 +13,21 @@ import javax.servlet.http.HttpSession;
 
 import SimiAlex.com.github.AutoStoreJavaEE.entities.Car;
 import SimiAlex.com.github.AutoStoreJavaEE.entities.FavouriteCar;
-import SimiAlex.com.github.AutoStoreJavaEE.repository.CarRepository;
-import SimiAlex.com.github.AutoStoreJavaEE.repository.CarRepositoryImpl;
+import SimiAlex.com.github.AutoStoreJavaEE.repository.ItemRepository;
+import SimiAlex.com.github.AutoStoreJavaEE.utilities.DIRepositories;
 
 @WebServlet(name = "AddToFavourites", urlPatterns = "/addToFavourites")
-public class AddToFavourites extends HttpServlet {
-
+public class AddToFavourites extends HttpServlet 
+{
+    // methods
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
     {
-        // recover Car object
+        // recover Car object using CarId
         int carId = Integer.parseInt(req.getParameter("carId"));
-        CarRepository cr = new CarRepositoryImpl();
-        Car aCar = cr.findById(carId);
+        ServletContext application = getServletContext();
+        ItemRepository<Car> carRepo = DIRepositories.getCarRepository(application);
+        Car aCar = carRepo.findById(carId);
 
         // add car to favourites
         HttpSession session = req.getSession();
@@ -41,6 +44,7 @@ public class AddToFavourites extends HttpServlet {
         // add car to favourites
         fc.getFavoriteCars().add(aCar);
 
+        // TODO replace this with a jsp
         // confirmation page
         try(PrintWriter out = resp.getWriter())
         {
@@ -55,5 +59,4 @@ public class AddToFavourites extends HttpServlet {
             out.print("</body></html>");
         }
     }
-    
 }

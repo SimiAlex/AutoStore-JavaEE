@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import SimiAlex.com.github.AutoStoreJavaEE.entities.Car;
-import SimiAlex.com.github.AutoStoreJavaEE.repository.CarRepository;
-import SimiAlex.com.github.AutoStoreJavaEE.repository.CarRepositoryImpl;
+import SimiAlex.com.github.AutoStoreJavaEE.repository.ItemRepository;
+import SimiAlex.com.github.AutoStoreJavaEE.utilities.DIRepositories;
 
 @WebServlet(name =  "CarsInAccountServlet", urlPatterns = {"/getCarList"})
 public class CarsInAccountServlet extends HttpServlet
@@ -20,18 +20,12 @@ public class CarsInAccountServlet extends HttpServlet
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
     {
-        // recover CarRepositoryImpl instance from application
+        // recover the ItemRepository<Car> instance from the application scope
         ServletContext application = getServletContext();
-
-        CarRepository cr = (CarRepository) application.getAttribute("carRepoImpl");
-        if(cr == null)
-        {
-            application.setAttribute("carRepoImpl" , new CarRepositoryImpl());
-            cr = (CarRepository) application.getAttribute("carRepoImpl");
-        }
+        ItemRepository<Car> carRepo = DIRepositories.getCarRepository(application);
 
         // put car set in Session object      
-        Set<Car> cars = cr.findAll();
+        Set<Car> cars = carRepo.findAll();
         req.getSession().setAttribute("carList", cars);
         
         // redirect to cars-in-account.jsp
