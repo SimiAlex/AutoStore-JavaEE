@@ -4,16 +4,19 @@ import java.util.List;
 import java.util.Set;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 import SimiAlex.com.github.AutoStoreJavaEE.entities.Car;
 
-public class CarRepositoryImpl implements CarRepository 
+public class CarRepositoryImpl implements ItemRepository<Car> 
 {
     // fields
-    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-persistence-unit");
-    private EntityManager em = emf.createEntityManager();
+    private EntityManager em;
+
+    // constructors
+    public CarRepositoryImpl(EntityManager em)
+    {
+        this.em = em;
+    }
 
     // methods
     @Override
