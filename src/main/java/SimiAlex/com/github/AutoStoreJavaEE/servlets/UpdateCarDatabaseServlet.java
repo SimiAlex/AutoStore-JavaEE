@@ -10,21 +10,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import SimiAlex.com.github.AutoStoreJavaEE.entities.Car;
-import SimiAlex.com.github.AutoStoreJavaEE.repository.CarRepository;
+import SimiAlex.com.github.AutoStoreJavaEE.repository.ItemRepository;
+import SimiAlex.com.github.AutoStoreJavaEE.utilities.DIRepositories;
 
 @WebServlet(name = "UpdateCarDatabaseServlet", urlPatterns = {"/update-car-database"})
-public class UpdateCarDatabaseServlet extends HttpServlet{
-    
-
+public class UpdateCarDatabaseServlet extends HttpServlet
+{
+    // methods    
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
+    {
+        // recover car id from request params    
         int id = Integer.parseInt(req.getParameter("id"));
+
+        // recover ItemRepository<Car> from application
         ServletContext application = getServletContext();
-
-        CarRepository cr = (CarRepository)application.getAttribute("carRepoImpl");
-
-        Car myCar = cr.findById(id); 
+        ItemRepository<Car> carRepo = DIRepositories.getCarRepository(application);
+        
+        // update a Car object retrieved from database using form fields
+        Car myCar = carRepo.findById(id); 
 
         String model = req.getParameter("model");
         String make = req.getParameter("make");
@@ -42,10 +46,10 @@ public class UpdateCarDatabaseServlet extends HttpServlet{
         myCar.setBodyType(bodyType);
         myCar.setMileage(mileage);
 
-        cr.updateCar(myCar);
+        // update Car object in database
+        carRepo.updateItem(myCar);
 
-          // redirect to cars-in-account.jsp
-          resp.sendRedirect("getCarList");
-
+        // redirect to cars-in-account.jsp
+        resp.sendRedirect("getCarList");
     }
 }

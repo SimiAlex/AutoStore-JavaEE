@@ -1,8 +1,7 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ page import="SimiAlex.com.github.AutoStoreJavaEE.entities.Car" %>
 <%@ page import="SimiAlex.com.github.AutoStoreJavaEE.entities.FavouriteCar" %>
-<%@ page import="SimiAlex.com.github.AutoStoreJavaEE.repository.CarRepository" %>
-<%@ page import="SimiAlex.com.github.AutoStoreJavaEE.repository.CarRepositoryImpl" %>
+<%@ page import="SimiAlex.com.github.AutoStoreJavaEE.repository.ItemRepository" %>
 <%@ page import="javax.servlet.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 

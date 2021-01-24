@@ -1,13 +1,14 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
-<%@ page import="SimiAlex.com.github.AutoStoreJavaEE.repository.CarRepository" %>
-<%@ page import="SimiAlex.com.github.AutoStoreJavaEE.repository.CarRepositoryImpl" %>
+<%@ page import="SimiAlex.com.github.AutoStoreJavaEE.repository.ItemRepository" %>
 <%@ page import="SimiAlex.com.github.AutoStoreJavaEE.entities.Car" %>
 <%@ page import="java.util.Set" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
   	<head>
-    	<title>AutoDealer</title>		
+    	<title>AutoDealer</title>	
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" media="screen" href="css/table.css"/>	
   	</head>
   
   	<body>    
