@@ -17,7 +17,7 @@ public class CarRepositoryImpl implements CarRepository
 
     // methods
     @Override
-    public void addCar(Car car) 
+    public void addItem(Car car) 
     {
         em.getTransaction().begin();
         em.persist(car);
@@ -40,7 +40,7 @@ public class CarRepositoryImpl implements CarRepository
     }
 
     @Override
-    public void updateCar(Car car) 
+    public void updateItem(Car car) 
     {
         em.getTransaction().begin();
         em.merge(car);
@@ -48,7 +48,7 @@ public class CarRepositoryImpl implements CarRepository
     }
 
     @Override
-    public void deleteCar(int id) 
+    public void deleteItem(int id) 
     {
         // retrieve car by id
         Car car = findById(id);
