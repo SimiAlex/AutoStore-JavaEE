@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "sellers")
@@ -16,8 +17,13 @@ public class Seller
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotNull
     private String name;
     private String type; // reprezentanta, privat, ...
+    
+    @NotNull
+    private String password;
 
     // TODO resolve mapping, including cascade type
     //private Set<Car> cars;
@@ -53,6 +59,16 @@ public class Seller
     public void setType(String type) 
     {
         this.type = type;
+    }
+
+    public String getPassword() 
+    {
+        return password;
+    }
+
+    public void setPassword(String password) 
+    {
+        this.password = password;
     }
 
     // public Set<Car> getCars() 

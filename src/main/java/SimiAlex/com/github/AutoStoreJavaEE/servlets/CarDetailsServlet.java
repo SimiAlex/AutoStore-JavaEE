@@ -25,7 +25,7 @@ public class CarDetailsServlet extends HttpServlet
         
         // recover ItemRepository<Car> from application
         ServletContext application = getServletContext();
-        ItemRepository<Car> carRepo = DIRepositories.getCarRepository(application);
+        ItemRepository<Car, Integer> carRepo = DIRepositories.getCarRepository(application);
 
         // recover car from database using the carId
         Car myCar = carRepo.findById(carId);

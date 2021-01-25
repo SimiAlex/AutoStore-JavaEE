@@ -18,10 +18,10 @@ public class DIRepositories
     private static final String SELLER_REPOSITORY_ATTRIBUTE = "sellerRepo";
     
     // methods - get car repository
-    public static ItemRepository<Car> getCarRepository(ServletContext application)
+    public static ItemRepository<Car, Integer> getCarRepository(ServletContext application)
     {
         // try to retrieve ItemRepository<Car> instance from application scope attributes
-        ItemRepository<Car> carRepo = (ItemRepository<Car>) application.getAttribute(CAR_REPOSITORY_ATTRIBUTE);
+        ItemRepository<Car, Integer> carRepo = (ItemRepository<Car, Integer>) application.getAttribute(CAR_REPOSITORY_ATTRIBUTE);
 
         // check for null and create an object if true, then set as application attribute
         if(Objects.isNull(carRepo))
@@ -39,10 +39,10 @@ public class DIRepositories
     }
 
     // methods - get seller repository
-    public static ItemRepository<Seller> getSellerRepository(ServletContext application)
+    public static ItemRepository<Seller, Long> getSellerRepository(ServletContext application)
     {
         // try to retrieve ItemRepository<Seller> instance from application scope attributes
-        ItemRepository<Seller> sellerRepo = (ItemRepository<Seller>) application.getAttribute(SELLER_REPOSITORY_ATTRIBUTE);
+        ItemRepository<Seller, Long> sellerRepo = (ItemRepository<Seller, Long>) application.getAttribute(SELLER_REPOSITORY_ATTRIBUTE);
 
         // check for null and create an object if true, then set as application attribute
         if(Objects.isNull(sellerRepo))

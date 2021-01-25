@@ -2,11 +2,11 @@ package SimiAlex.com.github.AutoStoreJavaEE.repository;
 
 import java.util.Set;
 
-public interface ItemRepository<T> 
+public interface ItemRepository<T, K> 
 {
     void addItem(T item);
     Set<T> findAll();
-    T findById(int id);
+    T findById(K id);
     void updateItem(T item);
-    void deleteItem(int id);
+    void deleteItem(K id);
 }

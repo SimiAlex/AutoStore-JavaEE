@@ -22,7 +22,7 @@ public class CarsInAccountServlet extends HttpServlet
     {
         // recover the ItemRepository<Car> instance from the application scope
         ServletContext application = getServletContext();
-        ItemRepository<Car> carRepo = DIRepositories.getCarRepository(application);
+        ItemRepository<Car, Integer> carRepo = DIRepositories.getCarRepository(application);
 
         // put car set in Session object      
         Set<Car> cars = carRepo.findAll();

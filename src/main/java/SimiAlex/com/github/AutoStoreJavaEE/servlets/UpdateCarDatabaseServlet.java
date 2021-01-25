@@ -25,7 +25,7 @@ public class UpdateCarDatabaseServlet extends HttpServlet
 
         // recover ItemRepository<Car> from application
         ServletContext application = getServletContext();
-        ItemRepository<Car> carRepo = DIRepositories.getCarRepository(application);
+        ItemRepository<Car, Integer> carRepo = DIRepositories.getCarRepository(application);
         
         // update a Car object retrieved from database using form fields
         Car myCar = carRepo.findById(id); 

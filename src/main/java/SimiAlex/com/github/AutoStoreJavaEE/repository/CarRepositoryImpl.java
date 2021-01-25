@@ -7,7 +7,7 @@ import javax.persistence.EntityManager;
 
 import SimiAlex.com.github.AutoStoreJavaEE.entities.Car;
 
-public class CarRepositoryImpl implements ItemRepository<Car> 
+public class CarRepositoryImpl implements ItemRepository<Car, Integer> 
 {
     // fields
     private EntityManager em;
@@ -36,7 +36,7 @@ public class CarRepositoryImpl implements ItemRepository<Car>
     }
 
     @Override
-    public Car findById(int id) 
+    public Car findById(Integer id) 
     {
         Car car  = em.find(Car.class, id);
         return car;
@@ -51,7 +51,7 @@ public class CarRepositoryImpl implements ItemRepository<Car>
     }
 
     @Override
-    public void deleteItem(int id) 
+    public void deleteItem(Integer id) 
     {
         // retrieve car by id
         Car car = findById(id);

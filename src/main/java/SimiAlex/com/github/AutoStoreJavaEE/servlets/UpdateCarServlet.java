@@ -33,7 +33,7 @@ public class UpdateCarServlet extends HttpServlet
        
         // recover an ItemRepository<Car> instance from the application scope
         ServletContext application = getServletContext();
-        ItemRepository<Car> carRepo = DIRepositories.getCarRepository(application);
+        ItemRepository<Car, Integer> carRepo = DIRepositories.getCarRepository(application);
 
         // recover car from database
         Car myCar = carRepo.findById(carId);

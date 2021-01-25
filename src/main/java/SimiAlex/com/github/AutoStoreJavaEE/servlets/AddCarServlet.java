@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import SimiAlex.com.github.AutoStoreJavaEE.entities.Car;
+import SimiAlex.com.github.AutoStoreJavaEE.entities.Seller;
+import SimiAlex.com.github.AutoStoreJavaEE.repository.ItemRepository;
+import SimiAlex.com.github.AutoStoreJavaEE.utilities.DIRepositories;
 
 @WebServlet(name = "AddCarServlet", urlPatterns = { "/add-car" })
 public class AddCarServlet extends HttpServlet 
@@ -25,11 +28,6 @@ public class AddCarServlet extends HttpServlet
         String bodyType = req.getParameter("bodyType");
         int mileage = Integer.parseInt(req.getParameter("mileage"));
 
-        // TODO for temporary use only, to be removed
-        int sellerId = Integer.parseInt(req.getParameter("sellerId"));
-        // recover seller from database (based on the site user, if he is a seller)
-        // TODO
-
         Car myCar = new Car();
         myCar.setModel(model);
         myCar.setMake(make);
@@ -39,13 +37,18 @@ public class AddCarServlet extends HttpServlet
         myCar.setBodyType(bodyType);
         myCar.setMileage(mileage);
         
-        // TODO set seller for this car
+        // set seller for this car
+        ItemRepository<Seller, Long> sellerRepo = DIRepositories.getSellerRepository(getServletContext());
+        long sellerId = ((Seller) req.getSession().getAttribute("seller")).getId();
+        Seller seller = sellerRepo.findById(sellerId);
+        myCar.setSeller(seller);
 
         // persist car
-        //CarRepository cr = new CarRepositoryImpl();
-        //cr.addCar(myCar);
+        ItemRepository<Car, Integer> carRepo = DIRepositories.getCarRepository(getServletContext());
+        carRepo.addItem(myCar);
 
         // show confirmation page
+        // TODO change to a jsp
         try(PrintWriter out = resp.getWriter())
         {
             out.print("<html><body>");

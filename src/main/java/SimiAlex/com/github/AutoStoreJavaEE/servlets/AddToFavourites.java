@@ -26,7 +26,7 @@ public class AddToFavourites extends HttpServlet
         // recover Car object using CarId
         int carId = Integer.parseInt(req.getParameter("carId"));
         ServletContext application = getServletContext();
-        ItemRepository<Car> carRepo = DIRepositories.getCarRepository(application);
+        ItemRepository<Car, Integer> carRepo = DIRepositories.getCarRepository(application);
         Car aCar = carRepo.findById(carId);
 
         // add car to favourites

@@ -6,7 +6,7 @@ import javax.persistence.EntityManager;
 
 import SimiAlex.com.github.AutoStoreJavaEE.entities.Seller;
 
-public class SellerRepositoryImpl implements ItemRepository<Seller> 
+public class SellerRepositoryImpl implements ItemRepository<Seller, Long> 
 {
     // fields
     private EntityManager em;
@@ -33,10 +33,10 @@ public class SellerRepositoryImpl implements ItemRepository<Seller>
     }
 
     @Override
-    public Seller findById(int id) 
+    public Seller findById(Long id) 
     {
-        // TODO Auto-generated method stub
-        return null;
+        Seller seller  = em.find(Seller.class, id);
+        return seller;
     }
 
     @Override
@@ -47,7 +47,7 @@ public class SellerRepositoryImpl implements ItemRepository<Seller>
     }
 
     @Override
-    public void deleteItem(int id) 
+    public void deleteItem(Long id) 
     {
         // TODO Auto-generated method stub
 
