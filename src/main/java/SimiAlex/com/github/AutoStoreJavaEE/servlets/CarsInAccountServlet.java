@@ -3,6 +3,7 @@ package SimiAlex.com.github.AutoStoreJavaEE.servlets;
 import java.io.IOException;
 import java.util.Set;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -29,6 +30,7 @@ public class CarsInAccountServlet extends HttpServlet
         req.getSession().setAttribute("carList", cars);
         
         // redirect to cars-in-account.jsp
-        resp.sendRedirect("cars-in-account.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/cars-in-account.jsp");
+        dispatcher.forward(req, resp);
     }
 }
