@@ -15,7 +15,7 @@ Frontend:
 
 Backend:
 * HttpServlets
-* MySQL database 
+* Database: MySQL or PostgreSQL (code for both options was developed for testing purposes); change the `persistence.xml` file to switch between databases 
 * JPA - Hibernate   
 
 Others:
