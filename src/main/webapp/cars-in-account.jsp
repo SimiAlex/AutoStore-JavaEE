@@ -1,6 +1,4 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
-<%@ page import="SimiAlex.com.github.AutoStoreJavaEE.repository.CarRepository" %>
-<%@ page import="SimiAlex.com.github.AutoStoreJavaEE.repository.CarRepositoryImpl" %>
 <%@ page import="SimiAlex.com.github.AutoStoreJavaEE.entities.Car" %>
 <%@ page import="java.util.Set" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -29,16 +27,16 @@
 	
 			<tbody>
 				<c:forEach var="car" items="${sessionScope.carList}" >
-				<tr>
-					<td>${car.id}</td>
-					<td>${car.make}</td>
-					<td>${car.model}</td>
-					<td>${car.year}</td>
-					<td>${car.price}</td>
-					<td>
-						<a href="car-details-servlet?id=${car.id}">Details</a>
-					</td>
-				</tr>
+					<tr>
+						<td>${car.id}</td>
+						<td>${car.make}</td>
+						<td>${car.model}</td>
+						<td>${car.year}</td>
+						<td>${car.price}</td>
+						<td>
+							<a href="car-details-servlet?id=${car.id}">Details</a>
+						</td>
+					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
