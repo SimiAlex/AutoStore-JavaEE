@@ -27,7 +27,7 @@ public class CarRepositoryImpl implements CarRepository
     @Override
     public Set<Car> findAll() 
     {    
-        List<Car> cars = em.createQuery("from Car").getResultList();
+        List<Car> cars = em.createQuery("from Car", Car.class).getResultList();
         Set<Car> carsSet = Set.copyOf(cars);
         return carsSet;
     }
